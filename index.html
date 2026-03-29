@@ -6,7 +6,7 @@
   <title>Falooers | منصة الترويج المتبادل الذكي</title>
   <meta
     name="description"
-    content="منصة عربية للتسويق بالعمولة والترويج المتبادل بين حسابات حقيقية، مع حملات ظهور ونظام نقاط ولوحة اكتشاف تفاعلية."
+    content="منصة عربية للترويج المتبادل بين حسابات حقيقية مع حملات ظهور، روابط مباشرة، ونظام صلاحيات مميز للوحة الأدمن."
   >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,33 +31,34 @@
           <a href="#workflow">كيف تعمل</a>
           <a href="#campaign-builder">ابدأ حملة</a>
           <a href="#discovery-board">لوحة الاكتشاف</a>
+          <a href="#admin-panel">لوحة الأدمن</a>
         </div>
       </nav>
 
       <section class="hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">نمو قانوني. تفاعل حقيقي. شبكة بشرية.</span>
-          <h1>أطلق حملتك الترويجية واعرض حسابك على شبكة من المستخدمين الحقيقيين.</h1>
+          <span class="eyebrow">شبكة بشرية. استكشاف حر. إدارة داخلية واضحة.</span>
+          <h1>اعرض حسابك على مجتمع حقيقي يكتشف الروابط بنفسه، مع لوحة أدمن بصلاحيات دقيقة.</h1>
           <p class="hero-text">
-            المنصة لا تعد بمتابعين مضمونين، بل تمنحك فرص ظهور مدروسة داخل مجتمع وافق طواعية
-            على اكتشاف حسابات جديدة والتفاعل معها مقابل نقاط وحوافز شفافة.
+            المنصة لا تنفذ متابعات تلقائيًا ولا تدير حسابات خارجية، بل تعرض روابط الحسابات
+            داخل شبكة موافقين على الاستكشاف والتفاعل، مع نظام نقاط وتقارير وصلاحيات إدارية.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#campaign-builder">ابدأ حملة تجريبية</a>
-            <a class="button button-secondary" href="#platform-overview">استكشف المنصة</a>
+            <a class="button button-primary" href="#campaign-builder">أطلق حملة تجريبية</a>
+            <a class="button button-secondary" href="#admin-panel">ادخل لوحة الأدمن</a>
           </div>
           <ul class="hero-metrics">
             <li>
-              <strong>12.8k</strong>
-              <span>عضو نشط في الشبكة</span>
+              <strong id="networkMembersValue">148</strong>
+              <span>عضوًا نشطًا في الشبكة</span>
             </li>
             <li>
-              <strong>91%</strong>
-              <span>حملات مكتملة في الموعد</span>
+              <strong id="approvalRateValue">91%</strong>
+              <span>معدل قبول حملات الاكتشاف</span>
             </li>
             <li>
               <strong>24h</strong>
-              <span>متوسط دورة التقرير</span>
+              <span>دورة التقرير اليومية</span>
             </li>
           </ul>
         </div>
@@ -65,8 +66,8 @@
         <aside class="hero-panel">
           <div class="hero-card">
             <div class="card-label">حملة اليوم</div>
-            <h2>@yourbrand.sa</h2>
-            <p>حملة ظهور موجّهة لعشاق المحتوى الريادي في السعودية والإمارات.</p>
+            <h2 id="heroCampaignHandle">@yourbrand.sa</h2>
+            <p id="heroCampaignText">حملة ظهور موجّهة لعشاق المحتوى الريادي في السعودية والإمارات.</p>
             <div class="progress-meta">
               <span>التقدم</span>
               <strong id="heroProgressValue">68%</strong>
@@ -77,15 +78,15 @@
             <dl class="hero-stats">
               <div>
                 <dt>فرص الظهور</dt>
-                <dd>4,200</dd>
+                <dd id="heroReachValue">4,200</dd>
               </div>
               <div>
-                <dt>متابعات مكتسبة</dt>
-                <dd>318</dd>
+                <dt>أعضاء فتحوا الرابط</dt>
+                <dd id="heroVisitsValue">318</dd>
               </div>
               <div>
                 <dt>النقاط المستهلكة</dt>
-                <dd>1,280</dd>
+                <dd id="heroSpentValue">1,280</dd>
               </div>
             </dl>
           </div>
@@ -99,26 +100,27 @@
           <span class="section-tag">الفكرة</span>
           <h2>وسيط شرعي بين من يريد الترويج ومن يحب اكتشاف حسابات جديدة.</h2>
           <p>
-            كل عضو داخل الشبكة يسجل برضاه، ويجمع نقاطًا عبر التفاعل الحقيقي مع حملات يختارها
-            بنفسه. وعندما يريد الترويج لحسابه، يستخدم تلك النقاط ليظهر في لوحة الاكتشاف.
+            كل عضو داخل الشبكة يسجل برضاه، ويحدد هل يريد استقبال فرص اكتشاف جديدة أم لا.
+            وعندما يطلق مستخدم حملة، يظهر رابط حسابه داخل لوحة الاكتشاف ليقرر الأعضاء فتحه
+            أو تخطيه وفق اهتماماتهم.
           </p>
         </div>
 
         <div class="overview-grid">
           <article class="overview-card">
             <span>01</span>
-            <h3>حسابات بشرية حقيقية</h3>
-            <p>لا توجد روبوتات ولا تنفيذ خفي. جميع المشاركين مستخدمون حقيقيون بموافقة صريحة.</p>
+            <h3>روابط مباشرة بدل أوامر متابعة</h3>
+            <p>المنصة تعرض رابط تيك توك أو صفحة الحساب فقط، والقرار النهائي للمستخدم الحقيقي.</p>
           </article>
           <article class="overview-card">
             <span>02</span>
-            <h3>فرص ظهور وليست وعودًا وهمية</h3>
-            <p>الحملات تعرض المحتوى على أعضاء مهتمين، والمتابعة تبقى قرارًا اختياريًا بالكامل.</p>
+            <h3>نظام نقاط استكشاف</h3>
+            <p>كل عضو يحدد نقاط الحملة أو يحصل على نقاط عند الاطلاع على حسابات أخرى داخل الشبكة.</p>
           </article>
           <article class="overview-card">
             <span>03</span>
-            <h3>نظام نقاط عادل</h3>
-            <p>من يتفاعل أكثر يحصل على فرص أكبر لترويج حسابه داخل الشبكة بطريقة متوازنة.</p>
+            <h3>لوحة أدمن مميزة</h3>
+            <p>صلاحيات موزعة حسب الدور: إدارة أعضاء الشبكة، مراجعة الحملات، وتحليل الجودة والثقة.</p>
           </article>
         </div>
       </section>
@@ -126,36 +128,36 @@
       <section id="workflow" class="section">
         <div class="section-heading">
           <span class="section-tag">آلية العمل</span>
-          <h2>رحلة الحملة من التسجيل حتى التقرير النهائي.</h2>
+          <h2>رحلة الحملة من التسجيل حتى تقرير الاكتشاف.</h2>
         </div>
 
         <div class="timeline">
           <article class="timeline-item">
             <span>1</span>
             <div>
-              <h3>تسجيل الحملة</h3>
-              <p>المستخدم يضيف اسم الحساب، مجال المحتوى، وعدد فرص الظهور التي يريد شراءها بالنقاط.</p>
+              <h3>إطلاق الحملة</h3>
+              <p>الرائج يكتب اسم حسابه، رابط تيك توك، الفئة، ونقاط الظهور المطلوبة.</p>
             </div>
           </article>
           <article class="timeline-item">
             <span>2</span>
             <div>
-              <h3>التحقق والمطابقة</h3>
-              <p>المنصة تراجع حالة الحساب، خلوه من المخالفات، وملاءمته للاهتمامات المتاحة داخل الشبكة.</p>
+              <h3>فحص المحتوى</h3>
+              <p>المنصة تراجع وصف الحملة وملاءمة الحساب للاهتمامات قبل عرضه في الشبكة.</p>
             </div>
           </article>
           <article class="timeline-item">
             <span>3</span>
             <div>
-              <h3>الظهور في لوحة الاكتشاف</h3>
-              <p>الحساب يظهر لأعضاء حقيقيين وفق الفئة واللغة والمنطقة، بدون أي إجبار على المتابعة.</p>
+              <h3>استكشاف من الأعضاء</h3>
+              <p>الأعضاء يفتحون الرابط مباشرة من الموقع ويقررون بأنفسهم المتابعة أو التجاهل.</p>
             </div>
           </article>
           <article class="timeline-item">
             <span>4</span>
             <div>
-              <h3>احتساب النقاط والجودة</h3>
-              <p>كل تفاعل موثّق ينعكس على رصيد العضو، مع نظام ثقة يحد من الغش والانسحابات السريعة.</p>
+              <h3>تقارير الأدمن</h3>
+              <p>لوحة الأدمن تعرض من وافق على الاستكشاف، ومن فتح الرابط، ومستوى الثقة لكل حملة.</p>
             </div>
           </article>
         </div>
@@ -164,8 +166,8 @@
       <section id="campaign-builder" class="section section-campaign">
         <div class="section-heading">
           <span class="section-tag">أطلق حملة</span>
-          <h2>نموذج تجريبي لبناء حملة ترويجية داخل المنصة.</h2>
-          <p>هذه الواجهة تحاكي ما يراه المستخدم عند تجهيز حملة جديدة وتقدير استهلاك النقاط المتوقع.</p>
+          <h2>نموذج حملة يضيف الحساب مباشرة إلى قائمة الاكتشاف.</h2>
+          <p>الرائج يكتب رابط الحساب ويحدد نقاط الحملة، فتظهر البطاقة في لوحة الاكتشاف ولوحة الأدمن.</p>
         </div>
 
         <div class="campaign-layout">
@@ -173,6 +175,16 @@
             <label>
               اسم الحساب
               <input id="handleInput" name="handle" type="text" placeholder="@brand_name" required>
+            </label>
+            <label>
+              رابط تيك توك
+              <input
+                id="linkInput"
+                name="link"
+                type="url"
+                placeholder="https://www.tiktok.com/@brand_name"
+                required
+              >
             </label>
             <label>
               نوع المحتوى
@@ -202,6 +214,10 @@
               </div>
             </label>
             <label>
+              نقاط الاستكشاف
+              <input id="rewardInput" name="reward" type="number" min="5" max="150" value="30" required>
+            </label>
+            <label>
               وصف مختصر للحملة
               <textarea
                 id="pitchInput"
@@ -210,7 +226,7 @@
                 placeholder="ما الذي يجعل حسابك جديرًا بالاكتشاف؟"
               ></textarea>
             </label>
-            <button class="button button-primary button-full" type="submit">ابدأ الحملة الترويجية</button>
+            <button class="button button-primary button-full" type="submit">إضافة الحملة إلى الشبكة</button>
           </form>
 
           <aside class="campaign-summary">
@@ -232,6 +248,10 @@
                   <dd id="summaryPoints">750</dd>
                 </div>
                 <div>
+                  <dt>نقاط الاستكشاف</dt>
+                  <dd id="summaryReward">30</dd>
+                </div>
+                <div>
                   <dt>التقدير المتوقع</dt>
                   <dd id="summaryEstimate">65 - 120 تفاعلًا</dd>
                 </div>
@@ -242,8 +262,8 @@
               <span class="card-label">سياسة المنصة</span>
               <ul class="policy-list">
                 <li>لا يوجد وعد بمتابعين مضمونين.</li>
-                <li>التفاعل يتم من أعضاء حقيقيين فقط.</li>
-                <li>أي محاولة غش تؤثر على النقاط وتقييم الثقة.</li>
+                <li>فتح الرابط والمتابعة قرار شخصي للمستخدم الحقيقي.</li>
+                <li>لوحة الأدمن تدير الأعضاء والحملات داخل المنصة فقط.</li>
               </ul>
             </div>
           </aside>
@@ -253,8 +273,8 @@
       <section id="discovery-board" class="section section-discovery">
         <div class="section-heading">
           <span class="section-tag">لوحة الاكتشاف</span>
-          <h2>مساحة يستكشف فيها الأعضاء الحملات ويقررون التفاعل معها.</h2>
-          <p>البطاقات التالية نموذج لواجهة الاكتشاف داخل المنصة، ويمكن تصفيتها حسب الاهتمامات.</p>
+          <h2>بطاقات حسابات يمكن فتحها مباشرة من الموقع.</h2>
+          <p>كل بطاقة تعرض رابط الحساب ونقاطها. يستطيع العضو فتح الرابط، ثم تأكيد الاطلاع أو تخطيه.</p>
         </div>
 
         <div class="filter-bar">
@@ -272,25 +292,183 @@
       <section class="section section-dashboard">
         <div class="section-heading">
           <span class="section-tag">مؤشرات المنصة</span>
-          <h2>لوحة مبسطة لقراءة الأداء والثقة والنقاط.</h2>
+          <h2>قراءة سريعة للنقاط والثقة وحالة الحملات.</h2>
         </div>
 
         <div class="dashboard-grid">
           <article class="dashboard-card">
             <h3>رصيد النقاط</h3>
             <strong id="pointsValue">2,480</strong>
-            <p>يمكن استخدامه لإطلاق حملات جديدة أو ترقية الظهور داخل الفئة نفسها.</p>
+            <p>يمكن استخدامه لإطلاق حملات جديدة أو تحسين فرص الظهور داخل الفئات المناسبة.</p>
           </article>
           <article class="dashboard-card">
             <h3>معدل الثقة</h3>
-            <strong>94%</strong>
-            <p>يرتفع مع التفاعل الحقيقي ويهبط عند إلغاء المتابعة بسرعة أو تقديم بيانات مضللة.</p>
+            <strong id="trustValue">94%</strong>
+            <p>يرتفع مع جودة الروابط والحملات وتفاعل الأعضاء الحقيقيين داخل الشبكة.</p>
           </article>
           <article class="dashboard-card">
             <h3>الحملات النشطة</h3>
             <strong id="campaignCount">3</strong>
-            <p>حملاتك النشطة تُعرض تدريجيًا وفق الميزانية والملاءمة مع اهتمامات الأعضاء.</p>
+            <p>كل حملة جديدة تُضاف إلى قائمة الاكتشاف ويمكن للأدمن اعتمادها أو تعليقها.</p>
           </article>
+        </div>
+      </section>
+
+      <section id="admin-panel" class="section section-admin">
+        <div class="section-heading">
+          <span class="section-tag">لوحة الأدمن</span>
+          <h2>منطقة إدارية بصلاحيات مميزة لإدارة الشبكة والحملات.</h2>
+          <p>هذه نسخة front-end تجريبية فيها جلسة دخول محلية وصلاحيات دورية لإدارة المحتوى داخل المنصة.</p>
+        </div>
+
+        <div class="admin-shell">
+          <aside class="admin-login-card">
+            <span class="card-label">دخول الإدارة</span>
+            <h3>تسجيل دخول الأدمن</h3>
+            <p>بيانات تجريبية للواجهة: <strong>admin@falooers.local</strong> و <strong>Admin123!</strong></p>
+            <form id="adminLoginForm" class="admin-login-form">
+              <label>
+                البريد الإداري
+                <input id="adminEmailInput" type="email" placeholder="admin@falooers.local" required>
+              </label>
+              <label>
+                كلمة المرور
+                <input id="adminPasswordInput" type="password" placeholder="Admin123!" required>
+              </label>
+              <button class="button button-primary button-full" type="submit">تسجيل الدخول</button>
+            </form>
+
+            <div class="admin-status" id="adminStatus">
+              <strong>الحالة الحالية:</strong>
+              <span>زائر</span>
+            </div>
+          </aside>
+
+          <div class="admin-console is-locked" id="adminConsole">
+            <div class="admin-console-header">
+              <div>
+                <span class="card-label">جلسة الإدارة</span>
+                <h3 id="adminRoleTitle">Super Admin</h3>
+                <p id="adminRoleText">يملك صلاحية اعتماد الحملات وإدارة الأعضاء وتعديل مستويات الثقة.</p>
+              </div>
+              <button class="button button-secondary" id="adminLogoutButton" type="button">تسجيل الخروج</button>
+            </div>
+
+            <div class="permissions-grid" id="permissionsGrid"></div>
+
+            <div class="admin-layout">
+              <section class="admin-card">
+                <div class="admin-card-heading">
+                  <div>
+                    <span class="card-label">الأعضاء</span>
+                    <h3>قائمة الشبكة الحقيقية</h3>
+                  </div>
+                </div>
+
+                <form id="memberForm" class="member-form">
+                  <label>
+                    اسم العضو
+                    <input id="memberNameInput" type="text" placeholder="سارة العتيبي">
+                  </label>
+                  <label>
+                    البريد
+                    <input id="memberEmailInput" type="email" placeholder="sara@example.com">
+                  </label>
+                  <label>
+                    رابط الحساب
+                    <input id="memberLinkInput" type="url" placeholder="https://www.tiktok.com/@sara">
+                  </label>
+                  <label>
+                    الاهتمام
+                    <select id="memberInterestInput">
+                      <option value="ريادة">ريادة</option>
+                      <option value="تعليم">تعليم</option>
+                      <option value="تقنية">تقنية</option>
+                      <option value="جمال">جمال</option>
+                      <option value="سفر">سفر</option>
+                    </select>
+                  </label>
+                  <label class="checkbox-row">
+                    <input id="memberConsentInput" type="checkbox" checked>
+                    <span>وافق على استقبال دعوات الاستكشاف</span>
+                  </label>
+                  <button class="button button-primary" type="submit">إضافة عضو</button>
+                </form>
+
+                <div class="table-wrap">
+                  <table class="admin-table">
+                    <thead>
+                      <tr>
+                        <th>العضو</th>
+                        <th>الاهتمام</th>
+                        <th>الحالة</th>
+                        <th>الدعوات</th>
+                      </tr>
+                    </thead>
+                    <tbody id="membersTableBody"></tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section class="admin-card">
+                <div class="admin-card-heading">
+                  <div>
+                    <span class="card-label">الحملات</span>
+                    <h3>إدارة الطلبات النشطة</h3>
+                  </div>
+                </div>
+
+                <div class="table-wrap">
+                  <table class="admin-table">
+                    <thead>
+                      <tr>
+                        <th>الحساب</th>
+                        <th>الفئة</th>
+                        <th>الحالة</th>
+                        <th>الإجراء</th>
+                      </tr>
+                    </thead>
+                    <tbody id="campaignsTableBody"></tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+
+            <div class="admin-layout admin-layout-secondary">
+              <section class="admin-card">
+                <div class="admin-card-heading">
+                  <div>
+                    <span class="card-label">التنبيهات</span>
+                    <h3>سجل النشاط</h3>
+                  </div>
+                </div>
+                <ul class="activity-list" id="activityList"></ul>
+              </section>
+
+              <section class="admin-card">
+                <div class="admin-card-heading">
+                  <div>
+                    <span class="card-label">الجودة</span>
+                    <h3>إحصاءات داخلية</h3>
+                  </div>
+                </div>
+                <div class="mini-stats">
+                  <article>
+                    <span>الأعضاء الموافقون</span>
+                    <strong id="consentedMembersValue">0</strong>
+                  </article>
+                  <article>
+                    <span>الحملات المعتمدة</span>
+                    <strong id="approvedCampaignsValue">0</strong>
+                  </article>
+                  <article>
+                    <span>روابط مفتوحة</span>
+                    <strong id="openedLinksValue">0</strong>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </div>
         </div>
       </section>
     </main>
