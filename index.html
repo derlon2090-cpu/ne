@@ -31,7 +31,7 @@
           <a href="#workflow">كيف تعمل</a>
           <a href="#campaign-builder">ابدأ حملة</a>
           <a href="#discovery-board">لوحة الاكتشاف</a>
-          <a href="#admin-panel">لوحة الأدمن</a>
+          <a href="#auth-portal">تسجيل الدخول</a>
         </div>
       </nav>
 
@@ -45,7 +45,7 @@
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#campaign-builder">أطلق حملة تجريبية</a>
-            <a class="button button-secondary" href="#admin-panel">ادخل لوحة الأدمن</a>
+            <a class="button button-secondary" href="#auth-portal">تسجيل دخول / إنشاء حساب</a>
           </div>
           <ul class="hero-metrics">
             <li>
@@ -314,37 +314,77 @@
         </div>
       </section>
 
-      <section id="admin-panel" class="section section-admin">
+      <section id="auth-portal" class="section section-auth">
+        <div class="section-heading">
+          <span class="section-tag">بوابة الحساب</span>
+          <h2>تسجيل دخول موحد للمستخدمين والإدارة مع إنشاء حساب جديد.</h2>
+          <p>يمكنك الدخول كعضو عادي أو كأدمن من نفس النموذج. لوحة الأدمن تبقى مخفية حتى يتم التحقق من حساب الإدارة.</p>
+        </div>
+
+        <div class="auth-shell">
+          <div class="auth-card">
+            <div class="auth-tabs">
+              <button class="auth-tab is-active" id="loginTabButton" type="button">تسجيل الدخول</button>
+              <button class="auth-tab" id="signupTabButton" type="button">إنشاء حساب</button>
+            </div>
+
+            <form id="authLoginForm" class="auth-form">
+              <label>
+                البريد الإلكتروني
+                <input id="authEmailInput" type="email" placeholder="name@example.com" required>
+              </label>
+              <label>
+                كلمة المرور
+                <input id="authPasswordInput" type="password" placeholder="••••••••" required>
+              </label>
+              <button class="button button-primary button-full" type="submit">دخول</button>
+              <p class="auth-note">يمكن للأدمن الدخول ببياناته من هذا النموذج نفسه.</p>
+            </form>
+
+            <form id="signupForm" class="auth-form is-hidden">
+              <label>
+                الاسم الكامل
+                <input id="signupNameInput" type="text" placeholder="اسمك الكامل" required>
+              </label>
+              <label>
+                البريد الإلكتروني
+                <input id="signupEmailInput" type="email" placeholder="name@example.com" required>
+              </label>
+              <label>
+                كلمة المرور
+                <input id="signupPasswordInput" type="password" placeholder="اختر كلمة مرور" required>
+              </label>
+              <button class="button button-primary button-full" type="submit">إنشاء الحساب</button>
+            </form>
+
+            <div class="auth-status" id="authStatus">
+              <strong>الحالة الحالية:</strong>
+              <span>زائر</span>
+            </div>
+          </div>
+
+          <div class="auth-card auth-info-card">
+            <span class="card-label">الوصول للإدارة</span>
+            <h3>لوحة الأدمن غير ظاهرة في الواجهة العامة.</h3>
+            <p>عند تسجيل الدخول بحساب الإدارة، يتم كشف لوحة الأدمن تلقائيًا داخل الصفحة وتفعيل الصلاحيات المرتبطة بالدور.</p>
+            <ul class="policy-list">
+              <li>الأعضاء العاديون لا يشاهدون لوحة الإدارة.</li>
+              <li>إنشاء الحساب يضيف المستخدم محليًا داخل النسخة التجريبية.</li>
+              <li>تسجيل الدخول الإداري يفتح أدوات الاعتماد وإدارة الأعضاء.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="admin-panel" class="section section-admin is-admin-hidden">
         <div class="section-heading">
           <span class="section-tag">لوحة الأدمن</span>
           <h2>منطقة إدارية بصلاحيات مميزة لإدارة الشبكة والحملات.</h2>
           <p>هذه نسخة front-end تجريبية فيها جلسة دخول محلية وصلاحيات دورية لإدارة المحتوى داخل المنصة.</p>
         </div>
 
-        <div class="admin-shell">
-          <aside class="admin-login-card">
-            <span class="card-label">دخول الإدارة</span>
-            <h3>تسجيل دخول الأدمن</h3>
-            <p>بيانات تجريبية للواجهة: <strong>admin@falooers.local</strong> و <strong>Admin123!</strong></p>
-            <form id="adminLoginForm" class="admin-login-form">
-              <label>
-                البريد الإداري
-                <input id="adminEmailInput" type="email" placeholder="admin@falooers.local" required>
-              </label>
-              <label>
-                كلمة المرور
-                <input id="adminPasswordInput" type="password" placeholder="Admin123!" required>
-              </label>
-              <button class="button button-primary button-full" type="submit">تسجيل الدخول</button>
-            </form>
-
-            <div class="admin-status" id="adminStatus">
-              <strong>الحالة الحالية:</strong>
-              <span>زائر</span>
-            </div>
-          </aside>
-
-          <div class="admin-console is-locked" id="adminConsole">
+        <div class="admin-shell admin-shell-single">
+          <div class="admin-console" id="adminConsole">
             <div class="admin-console-header">
               <div>
                 <span class="card-label">جلسة الإدارة</span>

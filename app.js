@@ -141,10 +141,18 @@ const heroReachValue = document.getElementById("heroReachValue");
 const heroVisitsValue = document.getElementById("heroVisitsValue");
 const heroSpentValue = document.getElementById("heroSpentValue");
 
-const adminLoginForm = document.getElementById("adminLoginForm");
-const adminEmailInput = document.getElementById("adminEmailInput");
-const adminPasswordInput = document.getElementById("adminPasswordInput");
-const adminStatus = document.getElementById("adminStatus");
+const authPortal = document.getElementById("auth-portal");
+const authLoginForm = document.getElementById("authLoginForm");
+const authEmailInput = document.getElementById("authEmailInput");
+const authPasswordInput = document.getElementById("authPasswordInput");
+const signupForm = document.getElementById("signupForm");
+const signupNameInput = document.getElementById("signupNameInput");
+const signupEmailInput = document.getElementById("signupEmailInput");
+const signupPasswordInput = document.getElementById("signupPasswordInput");
+const loginTabButton = document.getElementById("loginTabButton");
+const signupTabButton = document.getElementById("signupTabButton");
+const authStatus = document.getElementById("authStatus");
+const adminPanel = document.getElementById("admin-panel");
 const adminConsole = document.getElementById("adminConsole");
 const adminRoleTitle = document.getElementById("adminRoleTitle");
 const adminRoleText = document.getElementById("adminRoleText");
@@ -165,6 +173,15 @@ const memberInterestInput = document.getElementById("memberInterestInput");
 const memberConsentInput = document.getElementById("memberConsentInput");
 
 let availablePoints = 2480;
+let currentUser = null;
+let registeredUsers = [
+  {
+    name: "عضو تجريبي",
+    email: "user@falooers.local",
+    password: "User123!",
+    role: "member"
+  }
+];
 let activityFeed = [
   "تم اعتماد حملة @founder.ksa وربطها بفئة ريادة.",
   "أضاف الأدمن عضوًا جديدًا إلى قائمة الاستكشاف.",
@@ -263,6 +280,14 @@ function renderPermissions() {
       `;
     })
     .join("");
+}
+
+function setAuthMode(mode) {
+  const loginMode = mode === "login";
+  loginTabButton.classList.toggle("is-active", loginMode);
+  signupTabButton.classList.toggle("is-active", !loginMode);
+  authLoginForm.classList.toggle("is-hidden", !loginMode);
+  signupForm.classList.toggle("is-hidden", loginMode);
 }
 
 function renderCampaignCards(activeFilter = "الكل") {
@@ -429,10 +454,25 @@ function updateMetrics() {
 
 function setAdminSession(roleKey) {
   adminSession = adminRoles.find((role) => role.key === roleKey) || adminRoles[0];
-  adminStatus.innerHTML = `<strong>الحالة الحالية:</strong><span>${adminSession.title}</span>`;
   adminRoleTitle.textContent = adminSession.title;
   adminRoleText.textContent = adminSession.description;
-  adminConsole.classList.remove("is-locked");
+  adminPanel.classList.remove("is-admin-hidden");
+  authStatus.innerHTML = `<strong>الحالة الحالية:</strong><span>${adminSession.title}</span>`;
+  currentUser = {
+    name: adminSession.title,
+    email: "admin@falooers.local",
+    role: "admin"
+  };
+  window.setTimeout(() => {
+    adminPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 120);
+}
+
+function setMemberSession(user) {
+  currentUser = user;
+  adminSession = null;
+  adminPanel.classList.add("is-admin-hidden");
+  authStatus.innerHTML = `<strong>الحالة الحالية:</strong><span>${user.name}</span>`;
 }
 
 filterButtons.forEach((button) => {
@@ -492,29 +532,81 @@ campaignForm.addEventListener("submit", (event) => {
   renderCampaignsTable();
 });
 
-adminLoginForm.addEventListener("submit", (event) => {
+loginTabButton.addEventListener("click", () => {
+  setAuthMode("login");
+});
+
+signupTabButton.addEventListener("click", () => {
+  setAuthMode("signup");
+});
+
+authLoginForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const email = adminEmailInput.value.trim().toLowerCase();
-  const password = adminPasswordInput.value;
+  const email = authEmailInput.value.trim().toLowerCase();
+  const password = authPasswordInput.value;
 
   if (email === "admin@falooers.local" && password === "Admin123!") {
     setAdminSession("super_admin");
     pushActivity("تم تسجيل دخول الأدمن إلى لوحة الإدارة بنجاح.");
     showToast("تم تسجيل دخول الأدمن وتفعيل الصلاحيات المميزة.");
-    adminLoginForm.reset();
+    authLoginForm.reset();
     return;
   }
 
-  showToast("بيانات الدخول التجريبية غير صحيحة.");
+  const matchedUser = registeredUsers.find((user) => {
+    return user.email.toLowerCase() === email && user.password === password;
+  });
+
+  if (!matchedUser) {
+    showToast("بيانات الدخول غير صحيحة.");
+    return;
+  }
+
+  setMemberSession(matchedUser);
+  showToast(`مرحبًا ${matchedUser.name}، تم تسجيل الدخول بنجاح.`);
+  authLoginForm.reset();
+});
+
+signupForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = signupNameInput.value.trim();
+  const email = signupEmailInput.value.trim().toLowerCase();
+  const password = signupPasswordInput.value;
+
+  if (!name || !email || !password) {
+    showToast("أكمل بيانات إنشاء الحساب.");
+    return;
+  }
+
+  const userExists = registeredUsers.some((user) => user.email.toLowerCase() === email);
+  if (userExists || email === "admin@falooers.local") {
+    showToast("هذا البريد مستخدم بالفعل.");
+    return;
+  }
+
+  registeredUsers.unshift({
+    name,
+    email,
+    password,
+    role: "member"
+  });
+
+  authStatus.innerHTML = `<strong>الحالة الحالية:</strong><span>${name}</span>`;
+  showToast(`تم إنشاء الحساب ${name} بنجاح. يمكنك تسجيل الدخول الآن.`);
+  signupForm.reset();
+  setAuthMode("login");
 });
 
 adminLogoutButton.addEventListener("click", () => {
+  currentUser = null;
   adminSession = null;
-  adminStatus.innerHTML = "<strong>الحالة الحالية:</strong><span>زائر</span>";
+  authStatus.innerHTML = "<strong>الحالة الحالية:</strong><span>زائر</span>";
   adminRoleTitle.textContent = "Super Admin";
   adminRoleText.textContent = "يملك صلاحية اعتماد الحملات وإدارة الأعضاء وتعديل مستويات الثقة.";
-  adminConsole.classList.add("is-locked");
+  adminPanel.classList.add("is-admin-hidden");
+  authPortal.scrollIntoView({ behavior: "smooth", block: "start" });
   showToast("تم تسجيل الخروج من لوحة الأدمن.");
 });
 
@@ -554,6 +646,7 @@ memberForm.addEventListener("submit", (event) => {
 });
 
 updateCampaignSummary();
+setAuthMode("login");
 renderPermissions();
 renderCampaignCards();
 renderMembersTable();

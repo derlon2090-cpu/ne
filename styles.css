@@ -121,6 +121,7 @@ textarea {
 .timeline-item,
 .filter-bar,
 .discovery-card,
+.auth-card,
 .admin-login-card,
 .admin-card,
 .admin-console {
@@ -588,11 +589,104 @@ textarea {
   padding-bottom: 60px;
 }
 
+.section-admin.is-admin-hidden {
+  display: none;
+}
+
+.section-auth {
+  padding-top: 8px;
+}
+
+.auth-shell {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.auth-card {
+  border-radius: 30px;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.auth-tabs {
+  display: inline-flex;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  margin-bottom: 18px;
+}
+
+.auth-tab {
+  border: 0;
+  padding: 11px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.auth-tab.is-active {
+  background: var(--text);
+  color: #fff;
+}
+
+.auth-form {
+  display: grid;
+  gap: 18px;
+}
+
+.auth-form.is-hidden {
+  display: none;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.auth-form input {
+  border: 1px solid rgba(61, 39, 24, 0.14);
+  border-radius: 18px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
+}
+
+.auth-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.auth-status {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
+}
+
+.auth-info-card h3 {
+  margin: 14px 0 10px;
+}
+
 .admin-shell {
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 20px;
   align-items: start;
+}
+
+.admin-shell-single {
+  grid-template-columns: 1fr;
 }
 
 .admin-login-card,
@@ -776,6 +870,7 @@ textarea {
 
 @media (max-width: 1100px) {
   .admin-shell,
+  .auth-shell,
   .hero-grid,
   .campaign-layout,
   .overview-grid,
